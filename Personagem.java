@@ -93,7 +93,15 @@ public class Personagem{
           System.out.printf("%s comendo...\n", nome);
           --fome;
           energia = (energia == 10 ? energia : energia + 1);
+          if(!mochila.estaVazio()){
+            System.out.printf("%s comendo...\n", nome);
+            --fome;
+            energia = (energia == 10 ? energia : energia + 1);
+            mochila.removerNoFinal();
+          }
+
       }
+      
       if(fome >= 10){
         System.out.printf("%s morreu de fome", nome);
         System.out.println("\n");

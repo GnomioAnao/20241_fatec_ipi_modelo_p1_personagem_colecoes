@@ -1,8 +1,8 @@
 import java.util.Random;
 public class testePersonagem{
     public static void main (String[] args){
-        Personagem p = new Personagem(0, 5, 5);
-        p.nome = "Messi";
+        Personagem p = new Personagem();
+        p.nome = "Nishida";
         
         var gerador = new Random();
 
