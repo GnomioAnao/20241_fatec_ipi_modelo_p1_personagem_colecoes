@@ -6,7 +6,7 @@ public class Personagem{
   int energia;
   private int fome;
   private int sono;
-
+  
   //esse é o construtor padrão
   //criado automaticamente pelo compilador, ainda que não seja escrito explicitamente
   Personagem(){
@@ -26,6 +26,26 @@ public class Personagem{
     if (sono >= 0 && sono <= 10)
       this.sono = sono;
   }
+  void morrer(){
+    if(energia <= 0){
+      System.out.printf("%s morreu por falta de energia", nome);
+      System.out.println("\n");
+      System.out.println("o jogo acabou");
+      System.exit(0);
+    }
+    if(fome >= 10){
+      System.out.printf("%s morreu de fome", nome);
+      System.out.println("\n");
+      System.out.println("o jogo acabou");
+      System.exit(0);
+    }
+    if(sono >= 10){
+      System.out.printf("%s morreu de cansaco", nome);
+      System.out.println("\n");
+      System.out.println("o jogo acabou");
+      System.exit(0);
+    }
+}
 
   void cacar(){
     if(energia >= 2){
@@ -34,6 +54,12 @@ public class Personagem{
     }
     else{
       System.out.printf("%s sem energia para cacar...\n", nome);
+    }
+    if(energia <= 0){
+      System.out.printf("%s morreu por falta de energia", nome);
+      System.out.println("\n");
+      System.out.println("o jogo acabou");
+      System.exit(0);
     }
     fome = Math.min(fome + 1, 10);
     //resolver com o ternário
@@ -55,10 +81,16 @@ public class Personagem{
           --fome;
           energia = (energia == 10 ? energia : energia + 1);
       }
+      if(fome >= 10){
+        System.out.printf("%s morreu de fome", nome);
+        System.out.println("\n");
+        System.out.println("o jogo acabou");
+        System.exit(0);
+      }
   }
 
   void dormir(){
-    if(sono >= 1){
+    if(sono >= 2){
       System.out.printf("%s esta dormindo...\n", nome);
       sono -= 1;
       energia = Math.min(energia + 1, 10);
@@ -66,7 +98,14 @@ public class Personagem{
     else{
       System.out.printf("%s sem sono...\n", nome);
     }
+    if(sono >= 10){
+      System.out.printf("%s morreu de cansaco", nome);
+      System.out.println("\n");
+      System.out.println("o jogo acabou");
+      System.exit(0);
+    }
   }
+
 
   public String toString(){
     return String.format(
