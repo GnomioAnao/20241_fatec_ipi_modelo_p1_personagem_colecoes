@@ -6,7 +6,14 @@ public class Personagem{
   int energia;
   private int fome;
   private int sono;
-  
+  String itens[] = {"energetico", "agua", "javali selvagem", "amora", "batata frita"}; 
+  VetorDinamico mochila = new VetorDinamico();
+
+  void adicionarItem(){
+    var gerador = new Random();
+    mochila.adicionar(itens[gerador.nextInt(5)]);
+
+  }
   //esse é o construtor padrão
   //criado automaticamente pelo compilador, ainda que não seja escrito explicitamente
   Personagem(){
@@ -14,6 +21,9 @@ public class Personagem{
     energia = 10;
     fome = 0;
     sono = 0;
+    for(int i = 0; i <=3; i++){
+        adicionarItem();
+    }
   }
 
   //construtor personalizado
@@ -25,6 +35,9 @@ public class Personagem{
       this.fome = fome;
     if (sono >= 0 && sono <= 10)
       this.sono = sono;
+    for(int i = 0; i <=3; i++){
+      adicionarItem();
+    }
   }
   void morrer(){
     if(energia <= 0){
