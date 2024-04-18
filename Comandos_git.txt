@@ -1,0 +1,16 @@
+git config user.name : serve para colocar o seu nome como identificador do repositório.
+
+git config user.email : serve para colocar o seu email como identificador do repositório.
+
+git remote remove origin : serve para remover o Main antigo.
+
+git remote add origin : serve para criar e falar quem vai ser o novo Main.
+
+git commit -a -m : com esse comando nós podemos fazer um comentário direto na linha do teminal, sem precisar abrir outra janela de arquivo, -a serve para adicionar todos os os tipos de arquivo a esse commit. 
+-m serve para nós termos o direito de escreve entre aspas o comentário.
+
+git log : esse comando serve para podermos observar o que foi adicionado dentro do código.
+
+git status : esse comando serve para vermos o que houve de mudança no código atual e logo pede para fazermos um commit, salvar o que foi feito.
+
+git push origin main --tags : esse comando serve para transfirirmos todo o código com as tags incluidas para o repositório.
