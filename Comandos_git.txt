@@ -4,6 +4,8 @@ git config user.email : serve para colocar o seu email como identificador do rep
 
 git remote remove origin : serve para remover o Main antigo.
 
+git add. : esse comando serve para colocar de untracked para staged.
+
 git remote add origin : serve para criar e falar quem vai ser o novo Main.
 
 git commit -a -m : com esse comando nós podemos fazer um comentário direto na linha do teminal, sem precisar abrir outra janela de arquivo, -a serve para adicionar todos os os tipos de arquivo a esse commit. 
