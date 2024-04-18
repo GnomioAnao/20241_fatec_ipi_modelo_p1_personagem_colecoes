@@ -108,9 +108,20 @@ public class Personagem{
   }
 
   public String toString(){
-    return String.format(
+    StringBuilder sb = new StringBuilder(" ");
+    sb.append( 
+    String.format(
       "%s: (e:%d, f:%d, s:%d)",
       nome, energia, fome, sono
+      
+      )
     );
+    sb.append("\n\n");
+    sb.append(mochila.tamanho() > 0 ? "inventario : " : "");
+    sb.append("\n");
+    for(int i = 0; i < mochila.tamanho(); i++){
+      sb.append(String.format("/%s/", mochila.getElementos()[i]));
+    }
+    return sb.toString();
   }
 }

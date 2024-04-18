@@ -39,11 +39,11 @@ public class testePersonagem{
                 }
             System.out.println("\n" + p2);
             }
-        //     try {
-        //       //  Thread.sleep(5000);
-        //    // } catch (InterruptedException e) {
-        //         e.printStackTrace();
-        //     }
+            try {
+              Thread.sleep(5000);
+           } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
             int ataque = gerador.nextInt(2);
             if(p.energia > 0 && p2.energia > 0){
                 if(ataque == 0){
