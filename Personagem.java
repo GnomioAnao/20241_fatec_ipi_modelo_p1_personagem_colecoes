@@ -39,40 +39,21 @@ public class Personagem{
       adicionarItem();
     }
   }
-  void morrer(){
-    if(energia <= 0){
-      System.out.printf("%s morreu por falta de energia", nome);
-      System.out.println("\n");
-      System.out.println("o jogo acabou");
-      System.exit(0);
-    }
-    if(fome >= 10){
-      System.out.printf("%s morreu de fome", nome);
-      System.out.println("\n");
-      System.out.println("o jogo acabou");
-      System.exit(0);
-    }
-    if(sono >= 10){
-      System.out.printf("%s morreu de cansaco", nome);
-      System.out.println("\n");
-      System.out.println("o jogo acabou");
-      System.exit(0);
-    }
-}
 
-  void cacar(){
+
+  void cacar(Personagem inimigo){
     if(energia >= 2){
-      System.out.printf("%s esta cacando...\n", nome);
+      System.out.printf("\n%s esta cacando...\n", nome);
       energia -= 2; // energia = energia - 2;
     }
     else{
-      System.out.printf("%s sem energia para cacar...\n", nome);
+      System.out.printf("\n%s sem energia para cacar...\n", nome);
     }
     if(energia <= 0){
-      System.out.printf("%s morreu por falta de energia", nome);
-      System.out.println("\n");
-      System.out.println("o jogo acabou");
-      System.exit(0);
+      System.out.printf("\n%s morreu por falta de energia", nome);
+      if(inimigo.energia > 0){
+      System.out.printf("\n%s foi o campeao do embate pelo X", inimigo.nome);
+      }
     }
     fome = Math.min(fome + 1, 10);
     //resolver com o ternário
@@ -87,14 +68,12 @@ public class Personagem{
       //so vai avisar que esta sem fome
       switch(fome){
         case 0:
-          System.out.printf("%s sem fome....\n", nome);
+          System.out.printf("\n%s sem fome....\n", nome);
           break;
-        default:
-          System.out.printf("%s comendo...\n", nome);
-          --fome;
+          default:
           energia = (energia == 10 ? energia : energia + 1);
           if(!mochila.estaVazio()){
-            System.out.printf("%s comendo...\n", nome);
+            System.out.printf("\n%s comendo...\n", nome);
             --fome;
             energia = (energia == 10 ? energia : energia + 1);
             mochila.removerNoFinal();
@@ -103,30 +82,30 @@ public class Personagem{
       }
       
       if(fome >= 10){
-        System.out.printf("%s morreu de fome", nome);
-        System.out.println("\n");
-        System.out.println("o jogo acabou");
-        System.exit(0);
+        System.out.printf("\n%s morreu de fome", nome);
       }
   }
 
   void dormir(){
     if(sono >= 2){
-      System.out.printf("%s esta dormindo...\n", nome);
+      System.out.printf("\n%s esta dormindo...\n", nome);
       sono -= 1;
       energia = Math.min(energia + 1, 10);
     }
     else{
-      System.out.printf("%s sem sono...\n", nome);
+      System.out.printf("\n%s sem sono...\n", nome);
     }
     if(sono >= 10){
-      System.out.printf("%s morreu de cansaco", nome);
-      System.out.println("\n");
-      System.out.println("o jogo acabou");
-      System.exit(0);
+      System.out.printf("\n%s morreu de cansaco", nome);
+  
     }
   }
-
+  void perderEnergia(){
+    energia--;
+  }
+  void atacar(Personagem inimigo){
+    inimigo.perderEnergia();
+  }
 
   public String toString(){
     return String.format(

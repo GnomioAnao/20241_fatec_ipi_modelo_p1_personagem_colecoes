@@ -96,10 +96,10 @@ public class VetorDinamico {
 
   void reduzirTamanho(){
     String [] aux = new String[cap / 2];
+    cap /= 2;
     for(int i = 0; i < cap; i++){
       aux[i] = elementos[i];
     }
-    cap /= 2;
     elementos = aux;
   }
 
